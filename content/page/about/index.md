@@ -1,12 +1,12 @@
 ---
 title: About Me
-date: '2025-02-24'
+date: 2025-02-24
 aliases:
   - about-me
   - about-us
   - contact
 license: CC BY-NC-ND
-lastmod: '2025-02-24'
+lastmod: 2025-02-24
 menu:
     main: 
         weight: -90
