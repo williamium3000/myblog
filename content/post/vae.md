@@ -166,7 +166,7 @@ $$
 = E_{z\sim q_\phi(z|x)}[\log p_\theta(x|z)] - D_{KL}(q_\phi(z|x)||p(z))  
 $$  
   
-The first term (reconstruction loss) is to maximize the log probability of $p(x|z)$ given $z\sim q_\phi(z|x)$ while the second term (regularization loss) is to reguarlize the $q_\phi(z|x)$ making it close to prior $p(z)$. The first term is typically a MSELoss in the form of $||x - g(z')||_2$ where $z' = q_\phi(z|x)(x)$ and $g$ is the generator that represents $p_\theta(x|z)$. For the second term we usually assume that $z$ follows a standard normal distribution, i.e. $p(z) = N(0, 1)$, and we also optimize $q_\phi(z|x)$ to be a normal distribution, which means that $q_\phi(z|x)$ is represented by a function $f$ that predicts the mean and variance of $q_\phi(z|x)$. Under this assumption, we can write down the pdf of both $p(z)$ and $q_\phi(z|x)$ (in 2D case):  
+The first term (reconstruction loss) is to maximize the log probability of $p(x|z)$ given $z\sim q_\phi(z|x)$ while the second term (regularization loss) is to reguarlize the $q_\phi(z|x)$ making it close to prior $p(z)$. The first term is typically a MSELoss in the form of $\Vert x - g(z')\Vert_2$ where $z' = q_\phi(z|x)(x)$ and $g$ is the generator that represents $p_\theta(x|z)$. For the second term we usually assume that $z$ follows a standard normal distribution, i.e. $p(z) = N(0, 1)$, and we also optimize $q_\phi(z|x)$ to be a normal distribution, which means that $q_\phi(z|x)$ is represented by a function $f$ that predicts the mean and variance of $q_\phi(z|x)$. Under this assumption, we can write down the pdf of both $p(z)$ and $q_\phi(z|x)$ (in 2D case):  
   
 $$  
 p(z) = \frac{1}{\sqrt{2\pi\sigma_p^2}}exp(-\frac{(z - \mu_p)^2}{2\sigma_p^2})=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\\  
