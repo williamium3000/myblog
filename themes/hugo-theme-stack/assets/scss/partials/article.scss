@@ -184,11 +184,11 @@
 
       &:not(:last-child)::after {
         content: ',';
-        margin-left: 0.25em;
+        margin-left: 0.1em;
       }
 
       &:not(:last-child) {
-        margin-right: 0.5em;
+        margin-right: 0.2em;
       }
     }
 }
