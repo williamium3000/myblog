@@ -16,13 +16,15 @@ menu:
 👋 Hi, I’m Yijiang (William) Li. Welcome to my blog. This where I write up my thoughts, summary of reading and some of my ideas. 
 
 
-**I am**
-- A first year PhD Student at UC SanDiego
-- A MSE of Computer Science at Johns Hopkins University
-- A BE of Computer Science in South China University of Technology
+**I am a**
+- first-year PhD Student at UC San Diego
+- MSE of Computer Science at Johns Hopkins University
+- BE of Computer Science in South China University of Technology
 
 **I also**
-- Interested learning aspect of AI with a focus on multi-modal, 3D vision and embodiment.
+- Interested in "How AI learns?"
+  - with a focus on multi-modal, 3D vision and embodiment.
+  - I believe the time has come for AI to make a real difference in other fields, e.g. science, biomedical, music and ancient languages.
 - love traveling (see some of the great phots in my homepage)
 - Football ([@Real Madrid CF](https://www.realmadrid.com/en-US))
 - NBA ([@Lakers](https://x.com/Lakers)) and fan of LBJ [@KingJames](https://x.com/kingjames)
