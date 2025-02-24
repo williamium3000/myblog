@@ -25,7 +25,7 @@ menu:
 - Interested in "How AI learns?"
   - with a focus on multi-modal, 3D vision and embodiment.
   - I believe the time has come for AI to make a real difference in other fields, e.g. science, biomedical, music and ancient languages.
-- love traveling (see some of the great phots in my homepage)
+- love traveling (see some of the great photos in my homepage)
 - Football ([@Real Madrid CF](https://www.realmadrid.com/en-US))
 - NBA ([@Lakers](https://x.com/Lakers)) and fan of LBJ [@KingJames](https://x.com/kingjames)
 
