@@ -172,27 +172,24 @@
 
 .article-tags{
     display: flex;
-    color: var(--card-text-color-tertiary);
-    gap: 5px;
+    flex-wrap: wrap;
+    gap: 0.5em;
 
-    svg {
-        vertical-align: middle;
-        width: 20px;
-        height: 20px;
-        stroke-width: 1.33;
-        flex-shrink: 0;
-    }
-
-    time,
     a {
-        font-size: 1.4rem;
-        color: var(--card-text-color-tertiary);
-    }
+      position: relative;
 
-    & > div {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
+      &::before {
+        content: '#';
+      }
+
+      &:not(:last-child)::after {
+        content: ',';
+        margin-left: 0.25em;
+      }
+
+      &:not(:last-child) {
+        margin-right: 0.5em;
+      }
     }
 }
 
