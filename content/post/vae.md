@@ -144,12 +144,14 @@ D_{KL}&(q_\phi(z|x) || p_\theta(z|x)) = \int_z q_\phi(z|x) \log \frac{q_\phi(z|x
 $$  
   
 Once rearrange the left and right hand side of the equation, we have:  
+  
 $$  
 \log p_\theta(x) - D_{KL}(q_\phi(z|x) || p_\theta(z|x)) = \\  
 E_{z\sim q_\phi(z|x)}[\log p_\theta(z|x)] - D_{KL}(q_\phi(z|x)||p(z))  
 $$  
   
 The LHS of the equation is exactly what we want to maximize when learning the true distributions: we want to maximize the (log-)likelihood of generating real data (that is $\log p_\theta(x)$) and also minimize the difference between the real and estimated posterior distributions (the term $D_{KL}$ works like a regularizer). The RHS is $ELBO$. Since the KL Divergence $D_{KL}(q_\phi(z|x) || p_\theta(z|x))$ is non-negative:  
+  
 $$  
 \log p_\theta(x) \ge E_{z\sim q_\phi(z|x)}[\log p_\theta(z|x)] - D_{KL}(q_\phi(z|x)||p(z))  
 $$  
@@ -157,6 +159,7 @@ $$
   
 ### Loss derived from ELBO  
 Now, we take a deeper look at $ELBO$ in VAE:  
+  
 $$  
 \int_z q_\phi(z|x) \log \frac{p_\theta(x|z) p(z)}{q_\phi(z|x)} dz\\  
 = \int_z q_\phi(z|x) \log p_\theta(x|z) dz + \int_z q_\phi(z|x) \log \frac{p(z)}{q_\phi(z|x)} dz\\  
@@ -164,11 +167,14 @@ $$
 $$  
   
 The first term (reconstruction loss) is to maximize the log probability of $p(x|z)$ given $z\sim q_\phi(z|x)$ while the second term (regularization loss) is to reguarlize the $q_\phi(z|x)$ making it close to prior $p(z)$. The first term is typically a MSELoss in the form of $||x - g(z')||_2$ where $z' = q_\phi(z|x)(x)$ and $g$ is the generator that represents $p_\theta(x|z)$. For the second term we usually assume that $z$ follows a standard normal distribution, i.e. $p(z) = N(0, 1)$, and we also optimize $q_\phi(z|x)$ to be a normal distribution, which means that $q_\phi(z|x)$ is represented by a function $f$ that predicts the mean and variance of $q_\phi(z|x)$. Under this assumption, we can write down the pdf of both $p(z)$ and $q_\phi(z|x)$ (in 2D case):  
+  
 $$  
 p(z) = \frac{1}{\sqrt{2\pi\sigma_p^2}}exp(-\frac{(z - \mu_p)^2}{2\sigma_p^2})=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\\  
 q_\phi(z|x) = \frac{1}{\sqrt{2\pi\sigma_\phi^2}}exp(-\frac{(z - \mu_\phi)^2}{2\sigma_\phi^2})  
 $$  
+  
 Thus, the second term can be derived as:  
+  
 $$  
 D_{KL}(q_\phi(z|x) || N(0, 1)) = D_{KL}(N(\mu_\phi, \sigma_\phi) || N(0, 1))\\  
 =-\int_z \frac{1}{\sqrt{2\pi\sigma_\phi^2}}exp(-\frac{(z - \mu_\phi)^2}{2\sigma_\phi^2}) \log \frac{\frac{1}{\sqrt{2\pi\sigma_\phi^2}}exp(-\frac{(z - \mu_\phi)^2}{2\sigma_\phi^2})}{\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}} dz\\  
@@ -182,6 +188,7 @@ D_{KL}(q_\phi(z|x) || N(0, 1)) = D_{KL}(N(\mu_\phi, \sigma_\phi) || N(0, 1))\\
 =\log \sigma_\phi + \frac{1}{2} - \frac{1}{2}\sigma_\phi^2 - \frac{1}{2}\mu_\phi^2 \\  
 =\frac{1}{2}(1 + \log \sigma_\phi^2 - \sigma_\phi^2 - \mu_\phi^2)  
 $$  
+  
 Now, we have the final form of $ELBO$ for a single sample $x_i \in X=\{x_1, x_2, \cdots, x_m\}$:  
   
 $$  
@@ -190,6 +197,7 @@ $$
   
   
 We put it back to the expectation and maximize the expectation of $ELBO$ given $x\sim p_{\theta^*}(x)$:  
+  
 $$  
 E_{x\sim p_{\theta^*}(x)}[\log p_\theta (x)] \ge E_{x\sim p_{\theta^*}(x)}[\int_z q_\phi(z|x)\frac{p_\theta(x|z) p(z)}{q_\phi(z|x)} dz]\\  
 \theta^*, \phi^* \approx \operatorname*{argmax}_\theta E_{x\sim p_{\theta^*}(x)}[\int_z q_\phi(z|x)\frac{p_\theta(x|z) p(z)}{q_\phi(z|x)} dz]  
