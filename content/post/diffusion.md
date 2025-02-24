@@ -5,9 +5,9 @@ share: true
 tags:
   - diffusion
   - generative
-description: " Derivation of diffusion models."
+description: "Derivation of diffusion models."
 author: Yijiang Li
-width: -90
+width: -120
 categories:
   - diffusion
 ---

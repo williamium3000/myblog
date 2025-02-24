@@ -4,11 +4,11 @@ date: 2023-12-30
 share: true
 tags:
   - generative
-description: Taxonomy of generative models.
+description: Intro and taxonomy of generative models.
 author: Yijiang Li
 categories:
   - generative
-width: -90
+width: -120
 ---
   
 # Generative Model  
