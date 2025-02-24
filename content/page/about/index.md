@@ -13,7 +13,7 @@ menu:
         params:
             icon: user
 ---
-👋 Hi, I’m Yijiang (William) Li. Welcome to my blog. This where I write up my thoughts, summary of reading and some of my ideas. 
+👋 Hi, I’m Yijiang (William) Li. Welcome to my blog. This where I write up my thoughts, readings and some of my ideas. 
 
 
 **I am a**
