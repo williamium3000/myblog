@@ -17,7 +17,7 @@ Depending on whether annotation is available, machine learning mathods can be ce
   
 ## Modeling over p(x)  
   
-Given a distribution $p_\theta(x)$ parameterized by $\theta$, we denote the true distribution as $p_{\theta^*}(x)$ . To generate sample $x$ without no annotation as close as possible to $p_{\theta^*}(x)$ , we want to find the optimal $\theta^*$. That is, We want to find a $\theta$  that maximize the log probability of $p_\theta(x)$ with $x\sim p_{\theta^*}(x)$ .  
+Given a distribution $p_\theta(x)$ parameterized by $\theta$, we denote the true distribution as $p_{\theta^\ast}(x)$ . To generate sample $x$ without no annotation as close as possible to $p_{\theta^\ast}(x)$ , we want to find the optimal $\theta^\ast$. That is, We want to find a $\theta$  that maximize the log probability of $p_\theta(x)$ with $x\sim p_{\theta^\ast}(x)$ .  
   
 $$\theta^* = \operatorname*{argmax}_\theta p_{x\sim p_{\theta^*}(x), \theta}(x)\\  
 $$  
@@ -35,7 +35,7 @@ $$
 =\operatorname*{argmax}_\theta \sum_{i=1}^m \log p_\theta(x_i) \\  
 $$  
   
-This can also be seem as maximizing the expection of log likelihood with respect to $p_{\theta^*}(x)$, which can be rewrite as minimization of cross entropy between the two distributions. This equals to minimization of KL Divergence between the two distributions since the entropy of $p_{\theta^*}(x)$ is fixed as a constant:  
+This can also be seem as maximizing the expection of log likelihood with respect to $p_{\theta^\ast}(x)$, which can be rewrite as minimization of cross entropy between the two distributions. This equals to minimization of KL Divergence between the two distributions since the entropy of $p_{\theta^\ast}(x)$ is fixed as a constant:  
   
 $$  
 \theta^* = \operatorname*{argmax}_\theta E_{x\sim p_{\theta^*}(x)}[\log p_\theta (x)]\\  
@@ -49,4 +49,4 @@ $$
   
 We refer to [NIPS2016 2016 Tutorial on GAN by Ian](https://arxiv.org/pdf/1701.00160.pdf) for taxonomy of generative models.  
 ![different generative model](https://cdn.jsdelivr.net/gh/williamium3000/mynote@images/pic_1670834817305.png)    
-Now that we have the goal: maximization the log likelihood of $p_{x\sim p_{\theta^*}(x), \theta}(x)$. One of the biggest problem is how to define $p_\theta(x)$. Explicit density models define an explicit density function $p_\theta(x)$, which can be directly optimized through backprop. The main difficulty present in explicit density models is designing a model that can capture all of the complexity of the data to be generated while still maintaining computational tractability.  
+Now that we have the goal: maximization the log likelihood of $p_{x\sim p_{\theta^\ast}(x), \theta}(x)$. One of the biggest problem is how to define $p_\theta(x)$. Explicit density models define an explicit density function $p_\theta(x)$, which can be directly optimized through backprop. The main difficulty present in explicit density models is designing a model that can capture all of the complexity of the data to be generated while still maintaining computational tractability.  
