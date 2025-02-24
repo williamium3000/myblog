@@ -13,11 +13,11 @@ width: -120
   
 # Generative Model  
   
-Depending on whether annotation is available, machine learning mathods can be cetergorized as supervised and unsupervised learning. The different modeling over the distribution $x$ can roughly divide these methods into two catergory: generative and discriminative. In supervised learning, the most common one is discriminative which models the conditional probability $p_\theta(y|x)$ parameterized by $\theta$. With $\theta$ learnt from back propagation over the samples, models directly predict $y = p_\theta(y|x)$. Gernerative model, on the other hand, models the joint probability of $p(x, y)$ and predict $y=p(y|x)=\frac{p(x, y)}{p(x)}$. Knowing what generative model cares about, we focus on the unsupervised generative model that's used to generate images as real as possible.  
+Depending on whether annotation is available, machine learning mathods can be cetergorized as supervised and unsupervised learning. The different modeling over the distribution $x$ can roughly divide these methods into two catergory: generative and discriminative. In supervised learning, the most common one is discriminative which models the conditional probability $p_\theta(y|x)$ parameterized by $\theta$. With $\theta$ learnt from back propagation over the samples, models directly predict $y = p_\theta(y|x)$. Gernerative model, on the other hand, models the joint probability of $p(x, y)$ and predict $y=p(y|x)=\frac{p(x, y)}{p(x)}$ . Knowing what generative model cares about, we focus on the unsupervised generative model that's used to generate images as real as possible.  
   
 ## Modeling over p(x)  
   
-Given a distribution $p_\theta(x)$ parameterized by $\theta$, we denote the true distribution as $p_{\theta^*}(x)$.  To generate sample $x$ without no annotation as close as possible to $p_{\theta^*}(x)$, we want to find the optimal $\theta^*$. That is, We want to find a $\theta$ that maximize the log probability of $p_\theta(x)$ with $x\sim p_{\theta^*}(x)$.  
+Given a distribution $p_\theta(x)$ parameterized by $\theta$, we denote the true distribution as $p_{\theta^*}(x)$ . To generate sample $x$ without no annotation as close as possible to $p_{\theta^*}(x)$ , we want to find the optimal $\theta^*$. That is, We want to find a $\theta$  that maximize the log probability of $p_\theta(x)$ with $x\sim p_{\theta^*}(x)$ .  
   
 $$\theta^* = \operatorname*{argmax}_\theta p_{x\sim p_{\theta^*}(x), \theta}(x)\\  
 $$  
