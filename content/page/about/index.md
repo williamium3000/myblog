@@ -1,6 +1,6 @@
 ---
 title: About Me
-# description: 
+description: Intro of myself
 date: '2025-2-24'
 aliases:
   - about-me
