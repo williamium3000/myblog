@@ -7,6 +7,7 @@ tags:
   - generative
 description: " Derivation of diffusion models."
 author: Yijiang Li
+weight: -90
 categories:
   - diffusion
 ---
