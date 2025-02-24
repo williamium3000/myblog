@@ -67,7 +67,7 @@ params:
             src: # should be placed in asserts
 
     article:
-        math: false
+        math: true
         toc: true
         readingTime: true
         license:
