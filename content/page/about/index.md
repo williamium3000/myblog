@@ -27,7 +27,7 @@ menu:
   - I believe the time has come for AI to make a real difference in other fields, e.g. science, biomedical, music and ancient languages.
 - love traveling (see some of the great photos in my homepage)
 - Football ([@Real Madrid CF](https://www.realmadrid.com/en-US))
-- NBA ([@Lakers](https://x.com/Lakers)) and fan of LBJ [@KingJames](https://x.com/kingjames)
+- NBA ([@Lakers](https://x.com/Lakers)) and a huge fan of LBJ [@KingJames](https://x.com/kingjames)
 
 
 📫 How to reach me:
