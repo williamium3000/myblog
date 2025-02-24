@@ -62,7 +62,7 @@ To solve this intractability, VAE introduce a variation $q_\phi(z|x)$ to approxi
 ### Auto-encoder perspective  
   
 ## Optimization  
-Given the true distribution of data $p_{\theta^*}(x)$ with parameter $\theta^*$, the goal of VAE, as in any generative model, is to find the optimal $\theta^*$, which maximize the log likelihood of $p_\theta (x)$ with $x$ sampled from $p_{\theta^*}(x)$:  
+Given the true distribution of data $p_{\theta^\ast}(x)$ with parameter $\theta^\ast$, the goal of VAE, as in any generative model, is to find the optimal $\theta^\ast$, which maximize the log likelihood of $p_\theta (x)$ with $x$ sampled from $p_{\theta^\ast}(x)$:  
   
 $$  
 \theta^* = \operatorname*{argmax}_\theta E_{x\sim p_{\theta^*}(x)}[\log p_\theta (x)]\\  
@@ -70,7 +70,7 @@ $$
   
 VAE takes the form of an autoencoder, but instead of mapping the input into a fixed vector, we want to map it into a latent distribution $p(z)$. However, since both intergral and posterior is intractable, VAE introduce $q_\phi(z|x)$ to approximate $p_\theta(z|x)$. Note that once we have $p_\theta(x|z)$ and $p(z)$, $p_\theta(z|x)$ is fixed given by Bayes' Rule while $q_\phi(z|x)$ is independent of $p_\theta(x|z)$ with a different parameter $\phi$. What we want to solve now becomes to find a $\theta$ and $\phi$ to maximize the likelihood of $p_\theta(x)=\int_{z\sim p(z)} p_\theta(x, z) dz = \int_{z\sim p(z)} p_\theta(x|z) p(z) dz$.  
   
-We first derive the evidence lower bound (ELBO) for $\log p_\theta (x)$ which we optimize to maximize the log likelihood. We show three popular derivation as Derivation 1, Derivation 2 and Derivation 3. Notice that final objective is the expectation of $\log p_\theta (x)$ with respect to true distribution $x \sim p_{\theta^*}(x)$. Empirically, this is approximated with average over all training samples in $X$, which we show in Section "Loss derived from ELBO".  
+We first derive the evidence lower bound (ELBO) for $\log p_\theta (x)$ which we optimize to maximize the log likelihood. We show three popular derivation as Derivation 1, Derivation 2 and Derivation 3. Notice that final objective is the expectation of $\log p_\theta (x)$ with respect to true distribution $x \sim p_{\theta^\ast}(x)$. Empirically, this is approximated with average over all training samples in $X$, which we show in Section "Loss derived from ELBO".  
 ### ELBO: Derivation 1  
 Derivation 1 derectly derives the ELBO using anneal sampling and Jensen's inequality. We resmaple $p_\theta(x)$ with $q_\phi(z|x)$ (equals to multiply by constant 1).  
   
@@ -196,14 +196,14 @@ L_i = ||x_i - g(q_\phi(z|x)(x_i))||_2 + \frac{1}{2}(1 + \log \sigma_{i,\phi}^2 -
 $$  
   
   
-We put it back to the expectation and maximize the expectation of $ELBO$ given $x\sim p_{\theta^*}(x)$:  
+We put it back to the expectation and maximize the expectation of $ELBO$ given $x\sim p_{\theta^\ast}(x)$:  
   
 $$  
 E_{x\sim p_{\theta^*}(x)}[\log p_\theta (x)] \ge E_{x\sim p_{\theta^*}(x)}[\int_z q_\phi(z|x)\frac{p_\theta(x|z) p(z)}{q_\phi(z|x)} dz]\\  
 \theta^*, \phi^* \approx \operatorname*{argmax}_\theta E_{x\sim p_{\theta^*}(x)}[\int_z q_\phi(z|x)\frac{p_\theta(x|z) p(z)}{q_\phi(z|x)} dz]  
 $$  
   
-We use $\approx$ because sometimes optimal $\theta$ and $\phi$ cannot be obtained due to a loose lower bound. Nevertheless, we manage avoid the intractablity and sucessfully maximize the log likelihood $E_{x\sim p_{\theta^*}(x)}[\log p_\theta (x)]$.   
+We use $\approx$ because sometimes optimal $\theta$ and $\phi$ cannot be obtained due to a loose lower bound. Nevertheless, we manage avoid the intractablity and sucessfully maximize the log likelihood $E_{x\sim p_{\theta^\ast}(x)}[\log p_\theta (x)]$.   
   
 Empirically, we average the ELBO of every training sample $x_i$ in $X$:  
   
