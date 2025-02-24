@@ -1,11 +1,10 @@
 ---
-title: Variational inference
+title: Variational Inference
 date: 2023-12-30
 share: true
 tags:
   - statistics
   - vae
-  - generative
 description: variational inference and ELBO.
 author: Yijiang Li
 categories:
